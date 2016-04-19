@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <h3>Projects</h3>
+    <div class="column">
+      <table class="table">
+        <tbody>
+          <% @projects.each do |project| %>
+            <tr>
+              <td>
+                <h6>Project</h6>
+                <%= project.title %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h6>Details</h6>
+                <%= project.description %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h6>Address</h6>
+                <%= project.address %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
