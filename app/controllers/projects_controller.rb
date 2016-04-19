@@ -11,7 +11,8 @@ class ProjectsController < ApplicationController
 
   def create
     project = Project.new(project_params)
-    project.user = current_user
+    @user = current_user
+    project.user = @user
     if project.save
       redirect_to projects_path, notice: "You have successfully created a project."
     else
@@ -25,6 +26,6 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(
-    :title, :description, :category, :duration, :address, :zipcode)
+    :title, :description, :category, :duration, :address, :zipcode, :user_id)
   end
 end
