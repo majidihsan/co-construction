@@ -18,5 +18,12 @@
        <%= render 'layouts/messages' %>
        <%= yield %>
     </main>
+    <script>
+  window.onload = init();
+
+  function init(){
+    $('.alert-box.round.success').slideUp(2000,0);
+  }
+  </script>
   </body>
 </html>
