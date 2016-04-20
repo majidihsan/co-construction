@@ -1,0 +1,30 @@
+<div class="authform">
+  <h3>Edit Project</h3>
+  <%= form_for @project do |f| %>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, value: @project.title, :autofocus => true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_field :description, value: @project.description, :autofocus => true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :category %>
+      <%= f.select :category, options_for_select(Project::CATEGORIES)  %>
+    </div>
+    <div class="form-group">
+      <%= f.label :duration %>
+      <%= f.text_field :duration, value: @project.duration, :autofocus => true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :address %>
+      <%= f.text_field :address, value: @project.address, :autofocus => true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :zipcode %>
+      <%= f.text_field :zipcode, value: @project.zipcode, :autofocus => true, class: 'form-control'%>
+    </div>
+      <%= f.submit "Update Project", :class => 'button right' %>
+  <% end %>
+</div>

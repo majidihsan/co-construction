@@ -1,28 +1,27 @@
 <div class="container">
   <div class="row">
     <h3>Projects</h3>
-    <div class="column">
+    <div class="large-10 small-12 large-centered column">
       <table class="table">
         <tbody>
+          <tr>
+           <td>Project</td>
+           <td>Details</td>
+           <td>Address</td>
+         </tr>
           <% @projects.each do |project| %>
-            <tr>
-              <td>
-                <h6>Project</h6>
-                <%= project.title %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h6>Details</h6>
-                <%= project.description %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h6>Address</h6>
-                <%= project.address %>
-              </td>
-            </tr>
+          <tr>
+            <td><%= project.title %> </td>
+            <td><%= project.description %></td>
+            <td><%= project.address %></td>
+            <% if project.owner?(current_user) || current_user.try(:admin?) %>
+            <td><%= link_to 'Edit', edit_project_path(project), :class => 'button-xs' %></td>
+            <td><%= link_to("Delete ", project_path(project),
+              :data => { :confirm => "Are you sure?" }, :method => :delete,
+                :class => 'button-xs') %></td>
+            <% end %>
+          </tr>
+          <tr>
           <% end %>
         </tbody>
       </table>

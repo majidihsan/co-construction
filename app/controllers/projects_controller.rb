@@ -9,6 +9,19 @@ class ProjectsController < ApplicationController
     @api = Project.new
   end
 
+  def edit
+  @project = Project.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    if @project.update(project_params)
+      redirect_to projects_path, notice: "You have successfully updated your project."
+    else
+      redirect_to edit_project_path(@project), alert: @project.errors.full_messages.join(', ')
+    end
+  end
+
   def create
     project = Project.new(project_params)
     @user = current_user
@@ -20,12 +33,17 @@ class ProjectsController < ApplicationController
     end
   end
 
-
+  def destroy
+    @project = Project.find(params[:id])
+    if @project.destroy
+       redirect_to projects_path, :notice => "Project deleted."
+    end
+  end
 
   private
 
   def project_params
     params.require(:project).permit(
-    :title, :description, :category, :duration, :address, :zipcode, :user_id)
+    :title, :description, :category, :duration, :address, :zipcode)
   end
 end
