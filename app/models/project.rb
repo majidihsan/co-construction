@@ -23,4 +23,12 @@ class Project < ActiveRecord::Base
   validates :zipcode, presence: true, numericality: true
 
   belongs_to :user
+
+  def owner?(user)
+    if self.user == user
+      true
+    else
+      false
+    end
+  end
 end
