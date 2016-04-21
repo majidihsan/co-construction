@@ -15,15 +15,17 @@ class Company < ActiveRecord::Base
   'Structural Steel',
   'Ceramic and Tile'].freeze
 
-  validates :name, presence: true
-  validates :category, presence: true
-  validates :address, presence: true
-  validates :zipcode, presence: true, numericality: true
-  validates :phone, presence: true
+  validates :name,          presence: true
+  validates :category,      presence: true
+  validates :address,       presence: true
+  validates :zipcode,       presence: true, numericality: true
+  validates :phone,         presence: true, numericality: true
   validates :working_since, presence: true, numericality: true
   validates :working_hours, presence: true
 
   belongs_to :user
+  has_many :interested_companies, dependent: :destroy
+  has_many :projects, through: :interested_companies
 
   def owner?(user)
     if self.user == user

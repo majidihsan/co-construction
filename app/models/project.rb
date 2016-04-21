@@ -15,14 +15,16 @@ class Project < ActiveRecord::Base
   'Structural Steel',
   'Ceramic and Tile'].freeze
 
-  validates :title, presence: true
+  validates :title,       presence: true
   validates :description, presence: true
-  validates :category, presence: true
-  validates :duration, presence: true
-  validates :address, presence: true
-  validates :zipcode, presence: true, numericality: true
+  validates :category,    presence: true
+  validates :duration,    presence: true
+  validates :address,     presence: true
+  validates :zipcode,     presence: true, numericality: true
 
   belongs_to :user
+  has_many :interested_companies, dependent: :destroy
+  has_many :companies, through: :interested_companies
 
   def owner?(user)
     if self.user == user
