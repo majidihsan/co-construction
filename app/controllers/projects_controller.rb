@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @api = Project.new
+    @project = Project.new
   end
 
   def edit

@@ -5,12 +5,20 @@
       <table class="table">
         <tbody>
           <tr>
+           <td>Interested?</td>
            <td>Project</td>
            <td>Details</td>
            <td>Address</td>
          </tr>
           <% @projects.each do |project| %>
           <tr>
+            <td>
+              <% if current_user.role == "contractor" || current_user.role == "admin" %>
+                <%= link_to "I'm interested", root_path %>
+              <% else %>
+                <%= link_to "Join Us", new_company_path %>
+              <% end %>
+            </td>
             <td><%= project.title %> </td>
             <td><%= project.description %></td>
             <td><%= project.address %></td>
