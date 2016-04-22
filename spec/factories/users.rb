@@ -7,5 +7,8 @@ FactoryGirl.define do
     trait :admin do
       role 'admin'
     end
+    trait :contractor do
+      role 'contractor'
+    end
   end
 end

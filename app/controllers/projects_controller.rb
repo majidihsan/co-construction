@@ -40,6 +40,14 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def interested
+    @user = current_user
+    @company = @user.company
+    @project = Project.find(params[:project_id])
+    @interested = InterestedCompany.create(company: @company, project: @project)
+    redirect_to projects_path, notice: "You have successfully added a project."
+  end
+
   private
 
   def project_params

@@ -27,6 +27,7 @@ class Company < ActiveRecord::Base
   has_many :interested_companies, dependent: :destroy
   has_many :projects, through: :interested_companies
 
+
   def owner?(user)
     if self.user == user
       true
