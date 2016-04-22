@@ -44,8 +44,13 @@ class ProjectsController < ApplicationController
     @user = current_user
     @company = @user.company
     @project = Project.find(params[:project_id])
-    @interested = InterestedCompany.create(company: @company, project: @project)
-    redirect_to projects_path, notice: "You have successfully added a project."
+    @existing = InterestedCompany.find_by(project_id: params[:project_id])
+    if !@existing.nil?
+       redirect_to projects_path, notice: "You Already applied for this project."
+     else
+       @interested = InterestedCompany.create(company: @company, project: @project)
+       redirect_to projects_path, notice: "You have successfully added a project."
+     end
   end
 
   private
