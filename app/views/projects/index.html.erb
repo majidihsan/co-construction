@@ -5,15 +5,29 @@
       <table class="table">
         <tbody>
           <tr>
-           <td>Project</td>
-           <td>Details</td>
-           <td>Address</td>
+            <td><h4>Add to Dashboard</h4></td>
+            <td><h4>Project</h4></td>
+            <td><h4>Details</h4></td>
+            <td><h4>Category</h4></td>
+            <td><h4>Duration</h4></td>
+            <td><h4>Address</h4></td>
+            <td><h4>Zipcode</h4></td>
          </tr>
           <% @projects.each do |project| %>
           <tr>
-            <td><%= project.title %> </td>
-            <td><%= project.description %></td>
-            <td><%= project.address %></td>
+            <td>
+              <% if current_user.role == "contractor" || current_user.role == "admin" %>
+                <%= link_to "I'm interested", "projects/interested/#{project.id}" %>
+              <% else %>
+                <%= link_to "Join Us", new_company_path %>
+              <% end %>
+            </td>
+              <td><%= project.title %> </td>
+              <td><%= project.description %></td>
+              <td><%= project.category %></td>
+              <td><%= project.duration %></td>
+              <td><%= project.address %></td>
+              <td><%= project.zipcode %></td>
             <% if project.owner?(current_user) || current_user.try(:admin?) %>
             <td><%= link_to 'Edit', edit_project_path(project), :class => 'button-xs' %></td>
             <td><%= link_to("Delete ", project_path(project),
@@ -21,7 +35,6 @@
                 :class => 'button-xs') %></td>
             <% end %>
           </tr>
-          <tr>
           <% end %>
         </tbody>
       </table>

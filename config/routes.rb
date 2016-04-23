@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :projects, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :companies, only: [:new, :create]
+  resources :dashboard, only: [:index]
+  get 'projects/interested/:project_id', to: 'projects#interested'
 end

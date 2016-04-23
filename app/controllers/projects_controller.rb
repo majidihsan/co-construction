@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @api = Project.new
+    @project = Project.new
   end
 
   def edit
@@ -38,6 +38,19 @@ class ProjectsController < ApplicationController
     if @project.destroy
        redirect_to projects_path, :notice => "Project deleted."
     end
+  end
+
+  def interested
+    @user = current_user
+    @company = @user.company
+    @project = Project.find(params[:project_id])
+    @existing = InterestedCompany.find_by(project_id: params[:project_id])
+    if !@existing.nil?
+       redirect_to projects_path, notice: "You Already applied for this project."
+     else
+       @interested = InterestedCompany.create(company: @company, project: @project)
+       redirect_to projects_path, notice: "You have successfully added a project."
+     end
   end
 
   private
