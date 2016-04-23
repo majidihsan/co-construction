@@ -3,6 +3,7 @@
     <div class="large-10 small-12 large-centered column">
       <table class="table">
         <tbody>
+            <% if current_user.role == "contractor" || current_user.role == "admin" %>
           <tr>
             <td><h4>Project</h4></td>
             <td><h4>Details</h4></td>
@@ -11,7 +12,6 @@
             <td><h4>Address</h4></td>
             <td><h4>Zipcode</h4></td>
           </tr>
-            <% if current_user.role == "contractor" || current_user.role == "admin" %>
             <% @user.company.projects.each do |project| %>
           <tr>
             <td><%=project.title %></td>
@@ -22,6 +22,8 @@
             <td><%=project.zipcode %></td>
           </tr>
             <% end %>
+              <% else %>
+                <%= render 'dashboard/user_dashboard' %>
             <% end %>
         </tbody>
       </table>

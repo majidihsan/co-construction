@@ -1,28 +1,34 @@
 <div class="row">
-  <h3>Your Projects</h3>
+  <h3>Interested Compnaies </h3>
     <div class="large-10 small-12 large-centered column">
       <table class="table">
         <tbody>
           <tr>
             <td><h4>Project</h4></td>
-            <td><h4>Details</h4></td>
+            <td><h4>Company</h4></td>
             <td><h4>Category</h4></td>
-            <td><h4>Duration</h4></td>
             <td><h4>Address</h4></td>
             <td><h4>Zipcode</h4></td>
+            <td><h4>Contact</h4></td>
+            <td><h4>Hours</h4></td>
+            <td><h4>Since</h4></td>
           </tr>
             <% if current_user.role == "user" || current_user.role == "admin" %>
-            <% @user.company.projects.each do |project| %>
-          <tr>
-            <td><%=project.title %></td>
-            <td><%=project.description %></td>
-            <td><%=project.category %></td>
-            <td><%=project.duration %></td>
-            <td><%=project.address %></td>
-            <td><%=project.zipcode %></td>
-          </tr>
+            <% @user.projects.each do |project| %>
+              <% project.companies.each do |company| %>
+                <tr>
+                  <td><h5><%=project.title %></h5></td>
+                  <td><%=company.name %></td>
+                  <td><%=company.category %></td>
+                  <td><%=company.address %></td>
+                  <td><%=company.zipcode %></td>
+                  <td><%=company.phone %></td>
+                  <td><%=company.working_hours %></td>
+                  <td><%=company.working_since %></td>
+                </tr>
+              <% end %>
             <% end %>
-            <% end %>
+          <% end %>
         </tbody>
       </table>
     </div>
