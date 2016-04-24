@@ -25,6 +25,7 @@ class Project < ActiveRecord::Base
   belongs_to :user
   has_many :interested_companies, dependent: :destroy
   has_many :companies, through: :interested_companies
+  has_one :proposal, dependent: :destroy
 
   def owner?(user)
     if self.user == user
