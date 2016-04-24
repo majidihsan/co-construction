@@ -20,6 +20,7 @@
             <td><%=project.duration %></td>
             <td><%=project.address %></td>
             <td><%=project.zipcode %></td>
+            <td><%= link_to 'Write A Proposal', project_path(project), :class => 'button-xs' %></td>
           </tr>
             <% end %>
               <% else %>

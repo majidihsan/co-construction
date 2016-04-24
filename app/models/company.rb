@@ -26,6 +26,8 @@ class Company < ActiveRecord::Base
   belongs_to :user
   has_many :interested_companies, dependent: :destroy
   has_many :projects, through: :interested_companies
+  has_one :proposal, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
 
   def owner?(user)

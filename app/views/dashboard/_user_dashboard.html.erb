@@ -2,7 +2,7 @@
   <h3>Interested Compnaies </h3>
     <div class="large-10 small-12 large-centered column">
       <table class="table">
-        <tbody>
+        <thead>
           <tr>
             <td><h4>Project</h4></td>
             <td><h4>Company</h4></td>
@@ -13,6 +13,8 @@
             <td><h4>Hours</h4></td>
             <td><h4>Since</h4></td>
           </tr>
+        </thead>
+          <tbody>
             <% if current_user.role == "user" || current_user.role == "admin" %>
             <% @user.projects.each do |project| %>
               <% project.companies.each do |company| %>
@@ -25,7 +27,14 @@
                   <td><%=company.phone %></td>
                   <td><%=company.working_hours %></td>
                   <td><%=company.working_since %></td>
+                  <td><%= link_to 'Write A Review', company_path(company), :class => 'button-xs' %></td>
                 </tr>
+                  <tr>
+                    <td><h4>Proposal</h4></td>
+                  </tr>
+                  <t>
+                    <td><%=project.proposal.body %></td>
+                  </tr>
               <% end %>
             <% end %>
           <% end %>
