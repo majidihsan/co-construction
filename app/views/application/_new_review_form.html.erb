@@ -1,0 +1,18 @@
+<div class="body-background">
+    <div class="medium-centered api-review detail-text-medium float-center">
+      <h4>Review This Company</h4>
+      <%= form_for [@company, @review] do |f| %>
+        <div class="row">
+          <%= f.text_area :body, rows: 8, value: @review.body %>
+
+          <%= f.label :rating %>
+          <%= f.collection_radio_buttons(:rating,
+            [[1], [2], [3], [4], [5]], :first, :last) %>
+        </div>
+
+        <div class="row">
+          <%= f.submit "Add Review", :class => 'button right' %>
+        </div>
+      <% end %>
+    </div>
+</div>

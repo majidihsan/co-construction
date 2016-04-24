@@ -5,6 +5,12 @@ class CompaniesController < ApplicationController
     @company = Company.new
   end
 
+  def show
+    @company = Company.find(params[:id])
+    @review = Review.new
+    @reviews = @company.reviews
+  end
+
   def create
     company = Company.new(company_params)
     @user = current_user
