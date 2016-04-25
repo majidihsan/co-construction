@@ -27,6 +27,17 @@ class Project < ActiveRecord::Base
   has_many :companies, through: :interested_companies
   has_one :proposal, dependent: :destroy
 
+  include PgSearch
+  pg_search_scope :search_by_attributes, against: [
+    :title,
+    :description,
+    :category,
+    :duration,
+    :address,
+    :zipcode
+  ], using: { tsearch: { prefix: true, dictionary: "english" } }
+  scope :search, -> (query) { search_by_attributes (query) if query.present? }
+
   def owner?(user)
     if self.user == user
       true

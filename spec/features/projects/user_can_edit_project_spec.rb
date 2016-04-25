@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'user edits a existing project' do
   let!(:user) { FactoryGirl.create(:user) }
   let!(:project) {FactoryGirl.create(:project)}
+  let!(:proposal) {FactoryGirl.create(:proposal)}
 
   scenario 'user successfully edits a Project' do
     visit root_path

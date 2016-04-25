@@ -1,4 +1,5 @@
 class ProposalsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @proposal = Proposal.find(params[:id])

@@ -1,0 +1,22 @@
+<% if @no_results %>
+  <h5>No Results Found</h5>
+<% else %>
+  <table border="1" class="small-6">
+    <tr>
+      <th>Project Title</th>
+      <th>Project address</th>
+      <th>Project duration</th>
+      <th>Interested Company </th>
+    </tr>
+    <% Project.all.each do |project| %>
+      <tr>
+        <td><%= project.title %></td>
+        <td><%= project.address %></td>
+        <td><%= project.duration %></td>
+        <% project.companies.each do |company| %>
+        <td><%= company.name %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
