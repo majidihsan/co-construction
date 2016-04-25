@@ -1,0 +1,37 @@
+<% if @no_results %>
+  <h5>No Results Found</h5>
+<% else %>
+  <div class="container">
+    <div class="row">
+      <h3>Companies</h3>
+      <div class="column">
+        <table class="table">
+          <thead>
+            <tr>
+            <td><h3>Name</h3></td>
+            <td><h3>Category</h3></td>
+            <td><h3>Address</h3></td>
+            <td><h3>Zipcode</h3></td>
+            <td><h3>Phone</h3></td>
+            <td><h3>working hours</h3></td>
+            <td><h3>working Since</h3></td>
+            </tr>
+          </thead>
+          <tbody>
+            <% @companies.each do |company| %>
+              <tr>
+                <td><%= company.name %></td>
+                <td><%= company.category %></td>
+                <td><%= company.address %></td>
+                <td><%=company.zipcode  %></td>
+                <td><%= company.phone %></td>
+                <td><%=company.working_hours  %></td>
+                <td><%= company.working_since %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :projects, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :proposals, only: [:new, :create]
   end
-  resources :companies, only: [:new, :create, :show] do
+  resources :companies, only: [:index, :new, :create, :show] do
     resources :reviews, only: [:index, :new, :create]
   end
   resources :dashboard, only: [:index]

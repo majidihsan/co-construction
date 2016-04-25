@@ -19,6 +19,7 @@ gem 'devise-i18n'
 gem 'foundation-rails', '~> 5.5'
 gem 'high_voltage'
 gem 'pg'
+gem 'pg_search'
 gem 'puma'
 gem 'simple_form'
 group :development do

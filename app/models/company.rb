@@ -30,6 +30,18 @@ class Company < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
 
 
+  include PgSearch
+  pg_search_scope :search_by_attributes, against: [
+    :name,
+    :category,
+    :address,
+    :zipcode,
+    :phone,
+    :working_since,
+    :working_hours
+  ], using: { tsearch: { prefix: true, dictionary: "english" } }
+  scope :search, -> (query) { search_by_attributes (query) if query.present? }
+
   def owner?(user)
     if self.user == user
       true

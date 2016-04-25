@@ -1,6 +1,21 @@
 class CompaniesController < ApplicationController
   before_action :authenticate_user!
 
+
+  def index
+    @no_results = false
+
+    if params[:query] == '' || params[:query].nil?
+      @companies = Company.all
+    elsif params[:query].present?
+      @companies = Company.search('%' + params[:query] + '%')
+    end
+
+    if @companies.empty?
+      @no_results = true
+    end
+  end
+
   def new
     @company = Company.new
   end

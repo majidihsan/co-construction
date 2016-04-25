@@ -2,7 +2,17 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @projects = Project.all.order('created_at DESC')
+    @no_results = false
+
+    if params[:query] == '' || params[:query].nil?
+      @projects = Project.all
+    elsif params[:query].present?
+      @projects = Project.search('%' + params[:query] + '%')
+    end
+
+    if @projects.empty?
+      @no_results = true
+    end
   end
 
   def new
