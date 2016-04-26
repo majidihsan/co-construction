@@ -15,7 +15,7 @@
           </tr>
         </thead>
           <tbody>
-            <% if current_user.role == "user" || current_user.role == "admin" %>
+
             <% @user.projects.each do |project| %>
               <% project.companies.each do |company| %>
                 <tr>
@@ -37,7 +37,6 @@
                   </table>
               <% end %>
             <% end %>
-          <% end %>
         </tbody>
       </table>
     </div>

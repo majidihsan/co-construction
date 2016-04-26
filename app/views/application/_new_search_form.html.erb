@@ -2,14 +2,12 @@
 <p class="menu-text">
   <%= form_tag projects_path, method: :get do %>
     <%= text_field_tag :query, params[:query], placeholder: "Name Category Zipcode" %>
-    <%= submit_tag "Search Project", :class => 'button left' %>
   <% end %>
 </p>
  <% else %>
 <p class="menu-text">
   <%= form_tag companies_path, method: :get do %>
     <%= text_field_tag :query, params[:query], placeholder: "Name Category Zipcode" %>
-    <%= submit_tag "Search Contractor", :class => 'button' %>
   <% end %>
 <% end %>
 </p>
