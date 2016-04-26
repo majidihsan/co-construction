@@ -1,0 +1,30 @@
+<br />
+<br />
+
+<div class="row">
+  <div class="small-6 small-centered columns">
+
+    <div class="service">
+      <div class="service-icon-box">
+        <img src="/assets/hammer.png" alt="" class="service-icon">
+      </div>
+      <h4 class="service-heading"> <%= @company.name %> </h4>
+      <p class="service-description"> <%= @company.category %> </p>
+      <p class="service-description"> <%= @company.address %> </p>
+      <p class="service-description"> <%= @company.zipcode %> </p>
+      <p class="service-description"> <%= @company.phone %> </p>
+      <p class="service-description"> <%= @company.working_hours %> </p>
+      <p class="service-description"> <%= @company.working_since %> </p>
+    </div>
+    <div class="row">
+      <div class="small-6 small-centered columns">
+      <h4>Reviews</h4>
+        <% @company.reviews.each do |review| %>
+          <p><%= review.body %></p>
+            <p>Posted by: <%= review.user.name %></p>
+            <p>Rating: <%= review.rating %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</div>

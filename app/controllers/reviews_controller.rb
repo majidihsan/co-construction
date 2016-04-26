@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     @review.company = @company
     @review.user = current_user
     if @review.save
-      redirect_to dashboard_index_path, notice: "You have successfully submitted a Review."
+      redirect_to company_path(@company), notice: "You have successfully submitted a Review."
     else
       redirect_to company_path(@company), alert: @review.errors.full_messages.join(', ')
     end

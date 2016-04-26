@@ -25,7 +25,7 @@ class Project < ActiveRecord::Base
   belongs_to :user
   has_many :interested_companies, dependent: :destroy
   has_many :companies, through: :interested_companies
-  has_one :proposal, dependent: :destroy
+  has_many :proposals, dependent: :destroy
 
   include PgSearch
   pg_search_scope :search_by_attributes, against: [

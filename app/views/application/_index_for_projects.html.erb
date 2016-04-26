@@ -10,11 +10,10 @@
              <span class="fi-telephone"></span>
            </div>
            <div class="info">
-             <h4 class="text-center"><%= project.title %></h4>
+             <h4 class="text-center"><%= link_to(project.title, project_path(project))%></h4>
              <p>The Project is about <%= project.title %>. Locattion of the project
                 is <%= project.address %> and will be <%= project.duration %> long. Find out more
                   about this project Click Here! </p>
-             <a href="#" class="button">Link</a>
            </div>
          </div>
        </div>
@@ -29,11 +28,10 @@
              <span class="fi-mail"></span>
          </div>
          <div class="info">
-           <h4 class="text-center"><%= company.name %></h4>
+           <h4 class="text-center"><%= link_to(company.name, company_path(company))%></h4>
            <p><%= company.name %> has been working since <%= company.working_since %> in
               the area of <%= company.address %> <%= company.zipcode %> find more
               about the Company Click Here! </p>
-           <a href="#" class="button">Link</a>
          </div>
        </div>
      </div>
