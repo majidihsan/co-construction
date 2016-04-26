@@ -1,9 +1,10 @@
 <div class="row">
   <h3>Your Projects</h3>
     <div class="large-10 small-12 large-centered column">
+      <% if current_user.role == "contractor" || current_user.role == "admin" %>
+      <% @user.company.projects.each do |project| %>
       <table class="responsive">
         <tbody>
-            <% if current_user.role == "contractor" || current_user.role == "admin" %>
           <tr>
             <th>Project</th>
             <th>Details</th>
@@ -12,7 +13,6 @@
             <th>Address</th>
             <th>Zipcode</th>
           </tr>
-            <% @user.company.projects.each do |project| %>
           <tr>
             <td><%=project.title %></td>
             <td><%=project.description %></td>
