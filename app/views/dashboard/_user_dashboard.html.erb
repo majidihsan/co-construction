@@ -1,23 +1,22 @@
-<div class="row">
-  <h3>Interested Compnaies </h3>
-    <div class="large-4 columns">
-      <table class="responsive">
-        <thead>
-          <tr>
-            <td>Project</td>
-            <td>Company</td>
-            <td>Category</td>
-            <td>Address</td>
-            <td>Zipcode</td>
-            <td>Contact</td>
-            <td>Hours</td>
-            <td>Since</td>
-          </tr>
-        </thead>
-          <tbody>
-
-            <% @user.projects.each do |project| %>
-              <% project.companies.each do |company| %>
+<div>
+  <h3>Interested Contractors </h3>
+    <div>
+      <% @user.projects.each do |project| %>
+        <% project.companies.each do |company| %>
+          <table class="responsive">
+            <thead>
+              <tr>
+                <td>Project</td>
+                <td>Company</td>
+                <td>Category</td>
+                <td>Address</td>
+                <td>Zipcode</td>
+                <td>Contact</td>
+                <td>Hours</td>
+                <td>Since</td>
+              </tr>
+            </thead>
+              <tbody>
                 <tr>
                   <td><%=project.title %></td>
                   <td><%=company.name %></td>
@@ -29,16 +28,39 @@
                   <td><%=company.working_since %></td>
                   <td><%= link_to 'Write A Review', company_path(company), :class => 'button-xs' %></td>
                 </tr>
-                  <table class="responsive">
-                    <th>Proposal</th>
-                    <tr>
-                    <td><%=project.proposal.body %></td>
-                  </tr>
-                  </table>
               <% end %>
             <% end %>
         </tbody>
       </table>
     </div>
   </div>
+</div>
+
+
+<div class="row">
+<div class="large-8 large-push-4 columns">
+  <h3>Proposals for your Projects </h3>
+<table class="responsive">
+ <tr>
+<% @user.projects.each do |project| %>
+  <% project.companies.each do |company| %>
+    <% project.proposals.each do |proposal| %>
+       <div class="medium-6 columns">
+         <div class="box">
+           <div class="box-icon">
+               <span class="fi-mail"></span>
+           </div>
+           <div class="info">
+             <h4 class="text-center"><%= link_to(proposal.company.name, company_path(company)) %></h4>
+             <p class="text-center"><%=proposal.body %></p>
+             <p class="text-center"><%=proposal.project.title %></p>
+           </div>
+         </div>
+       </div>
+     </div>
+     <% end %>
+  <% end %>
+<% end %>
+</tr>
+</div>
 </div>

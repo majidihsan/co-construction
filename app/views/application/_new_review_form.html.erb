@@ -1,6 +1,6 @@
 <div class="body-background">
     <div class="medium-centered api-review detail-text-medium float-center">
-      <h4>Review This Company</h4>
+      <h4>Write A Review</h4>
       <%= form_for [@company, @review] do |f| %>
         <div class="row">
           <%= f.text_area :body, rows: 8, value: @review.body %>

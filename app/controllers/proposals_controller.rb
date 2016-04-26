@@ -16,9 +16,9 @@ class ProposalsController < ApplicationController
     @proposal.company = @company
     @proposal.project = @project
     if @proposal.save
-      redirect_to dashboard_index_path, notice: "You have successfully submitted a Propsal."
+      redirect_to root_path, notice: "You have successfully submitted a Propsal."
     else
-      redirect_to dashboard_index_path, alert: @proposal.errors.full_messages.join(', ')
+      redirect_to root_path, alert: @proposal.errors.full_messages.join(', ')
     end
   end
 
