@@ -1,16 +1,16 @@
 <div class="row">
   <h3>Your Projects</h3>
     <div class="large-10 small-12 large-centered column">
-      <table class="table">
+      <table class="responsive">
         <tbody>
             <% if current_user.role == "contractor" || current_user.role == "admin" %>
           <tr>
-            <td><h4>Project</h4></td>
-            <td><h4>Details</h4></td>
-            <td><h4>Category</h4></td>
-            <td><h4>Duration</h4></td>
-            <td><h4>Address</h4></td>
-            <td><h4>Zipcode</h4></td>
+            <th>Project</th>
+            <th>Details</th>
+            <th>Category</th>
+            <th>Duration</th>
+            <th>Address</th>
+            <th>Zipcode</th>
           </tr>
             <% @user.company.projects.each do |project| %>
           <tr>

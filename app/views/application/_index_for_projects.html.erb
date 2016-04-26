@@ -1,22 +1,42 @@
-<% if @no_results %>
-  <h5>No Results Found</h5>
-<% else %>
-  <table border="1" class="small-6">
-    <tr>
-      <th>Project Title</th>
-      <th>Project address</th>
-      <th>Project duration</th>
-      <th>Interested Company </th>
-    </tr>
-    <% Project.all.each do |project| %>
-      <tr>
-        <td><%= project.title %></td>
-        <td><%= project.address %></td>
-        <td><%= project.duration %></td>
-        <% project.companies.each do |company| %>
-        <td><%= company.name %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </table>
+
+<!-- this adds Foundation Icon Fonts!! -->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+<% if current_user.contractor? %>
+  <% Project.all.each do |project| %>
+     <div class="row">
+       <div class="medium-6 columns">
+         <div class="box">
+           <div class="box-icon">
+             <span class="fi-telephone"></span>
+           </div>
+           <div class="info">
+             <h4 class="text-center"><%= project.title %></h4>
+             <p>The Project is about <%= project.title %>. Locattion of the project
+                is <%= project.address %> and will be <%= project.duration %> long. Find out more
+                  about this project Click Here! </p>
+             <a href="#" class="button">Link</a>
+           </div>
+         </div>
+       </div>
+  <% end %>
+<% end %>
+
+<% if current_user.user? %>
+    <% Company.all.each do |company| %>
+     <div class="medium-6 columns">
+       <div class="box">
+         <div class="box-icon">
+             <span class="fi-mail"></span>
+         </div>
+         <div class="info">
+           <h4 class="text-center"><%= company.name %></h4>
+           <p><%= company.name %> has been working since <%= company.working_since %> in
+              the area of <%= company.address %> <%= company.zipcode %> find more
+              about the Company Click Here! </p>
+           <a href="#" class="button">Link</a>
+         </div>
+       </div>
+     </div>
+   </div>
+   <% end %>
 <% end %>
