@@ -4,7 +4,7 @@
 <% if current_user.contractor? %>
   <% Project.all.each do |project| %>
      <div class="row">
-       <div class="medium-6 columns">
+       <div class="large-11 small-centered columns">
          <div class="box">
            <div class="box-icon">
              <span class="fi-telephone"></span>
@@ -22,7 +22,8 @@
 
 <% if current_user.user? %>
     <% Company.all.each do |company| %>
-     <div class="medium-6 columns">
+    <div class="row">
+     <div class="small-11 small-centered columns">
        <div class="box">
          <div class="box-icon">
              <span class="fi-mail"></span>
@@ -36,5 +37,5 @@
        </div>
      </div>
    </div>
-   <% end %>
+  <% end %>
 <% end %>
