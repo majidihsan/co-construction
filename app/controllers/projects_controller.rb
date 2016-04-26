@@ -59,7 +59,7 @@ class ProjectsController < ApplicationController
     @user = current_user
     @company = @user.company
     @project = Project.find(params[:project_id])
-    @existing = InterestedCompany.find_by(project_id: params[:project_id])
+    @existing = InterestedCompany.find_by(company_id: params[:company_id])
     if !@existing.nil?
        redirect_to projects_path, notice: "You Already applied for this project."
      else
