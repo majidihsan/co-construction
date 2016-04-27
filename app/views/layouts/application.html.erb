@@ -21,6 +21,8 @@
        <%= render 'layouts/messages' %>
        <%= yield %>
     </main>
+
+    
     <script>
   window.onload = init();
 
@@ -28,10 +30,6 @@
     $('.alert-box.round.success').slideUp(3000,0);
   }
   </script>
-    <div class="row" id="bottom-bar">
-     <p style="text-align:center; padding-top: 20px">
-       • Launch Academy © 2016 •
-     </p>
-   </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

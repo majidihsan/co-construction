@@ -17,14 +17,19 @@
       <p class="service-description"> <%= @company.working_since %> </p>
     </div>
     <div class="row">
-      <div class="small-6 small-centered columns">
-      <h4>Reviews</h4>
-        <% @company.reviews.each do |review| %>
-          <p><%= review.body %></p>
-            <p>Posted by: <%= review.user.name %></p>
-            <p>Rating: <%= review.rating %></p>
-          <% end %>
+        <div class="panel">
+          <h4 style=" text-align: center;">REVIEWS</h4>
+        </div>
+        <div class="panel">
+            <% @company.reviews.each do |review| %>
+              <p><em>Posted by</em>: <strong><%= review.user.name %></5></strong>
+                <div class="panel">
+              <p><%= review.body %></p>
+                  <p>Rating: <%= review.rating %></p>
+                    </div>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-</div>
