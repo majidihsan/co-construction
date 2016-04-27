@@ -8,15 +8,14 @@
 
 <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
-<header class="header">
-  <h1 class="main-header">Lets Work Together!</h1>
-    <ul class="header-subnav">
-      <li><a href="projects/new">Post A Project</a></li>
-      <li><a href="#" class="is-active">Search</a></li>
-      <li><a a href="projects">Find A Project</a></li>
-    </ul>
-</header>
-
+  <header class="header full-width">
+    <h1 class="main-header">Lets Work Together!</h1>
+      <ul class="header-subnav">
+        <li><a href="projects/new">Post A Project</a></li>
+        <li><a href="#" class="is-active">Search</a></li>
+        <li><a a href="projects">Find A Project</a></li>
+      </ul>
+  </header>
 
 <% if user_signed_in? %>
   <%= render 'application/new_search_form' %><br />
