@@ -1,0 +1,34 @@
+<div class="authform">
+  <h3>Register Your Company Here</h3>
+  <%= form_for Company.new do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :category %>
+      <%= f.select :category, options_for_select(Company::CATEGORIES)  %>
+    </div>
+    <div class="form-group">
+      <%= f.label :address %>
+      <%= f.text_field :address, :autofocus => true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :zipcode %>
+      <%= f.text_field :zipcode, :autofocus => true, class: 'form-control'%>
+    </div>
+    <div class="form-group">
+      <%= f.label :phone %>
+      <%= f.text_field :phone, :autofocus => true, class: 'form-control'%>
+    </div>
+    <div class="form-group">
+      <%= f.label :working_hours %>
+      <%= f.text_field :working_hours, :autofocus => true, class: 'form-control'%>
+    </div>
+    <div class="form-group">
+      <%= f.label :working_since %>
+      <%= f.text_field :working_since, :autofocus => true, class: 'form-control'%>
+    </div>
+      <%= f.submit "Join", :class => 'button right' %>
+  <% end %>
+</div>

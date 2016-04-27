@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+<a href="#openModal">Register Your Company</a>
+<div id="openModal" class="modalDialog">
+    <div>	<a href="/projects" title="Close" class="close">X</a>
+
+          <h2>Thanks for Joining</h2>
+          <%= render 'application/company_resgisteration' %>
+    </div>
+</div>
+<% end %>
