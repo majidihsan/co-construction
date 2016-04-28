@@ -50,6 +50,12 @@ b) Contractor
 
 ## Technologies Utilized
 
+* Ruby version - (ruby 2.2.3)
+
+* Configuration (Puma web server)
+
+* Database creation (PostgreSQL database)
+
 * Rails
 
 * JQuery
@@ -68,4 +74,4 @@ b) Contractor
 
 * Factory_Girl (Test Data)
 
-* Foundation 5 (Styling)
+* Foundation 5.5 (Styling)
