@@ -1,0 +1,4 @@
+.image {
+  background: url('/assets/welcome.jpg') no-repeat;
+  background-size:cover;
+}

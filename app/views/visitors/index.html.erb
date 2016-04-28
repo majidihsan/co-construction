@@ -21,8 +21,13 @@
       </ul>
   </header>
 
-
 <% if user_signed_in? %>
   <%= render 'application/new_search_form' %><br />
   <%= render 'application/index_for_projects' %>
+<% end %>
+
+<% if !user_signed_in? %>
+<div class= "image">
+     <%= render 'application/animation' %>
+</div>
 <% end %>
