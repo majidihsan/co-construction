@@ -4,7 +4,7 @@
 Link to website : https://co-construction.herokuapp.com/
 --------------------------------------------------------
 
-Is a fully responsive website which will provide a collaborative environment for both clients and
+it is platform which will provide a collaborative environment for both clients and
 contractors where they can keep track of there projects and develop a portfolio which will help other
 users to find exactly what they looking for in a more productive manner.
 
