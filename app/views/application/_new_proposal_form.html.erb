@@ -1,10 +1,10 @@
 <div class="authform">
     <h5>Write Your Proposal Here</h5>
-  <%= form_for [@project, @proposal] do |f| %>
-    <div class="form-group">
-      <%= f.label :body %>
-      <%= f.text_area :body, :autofocus => true, class: 'form-control' %>
-    </div>
+    <%= form_for [@project, @proposal] do |f| %>
+      <div class="form-group">
+        <%= f.label :body %>
+        <%= f.text_area :body, :autofocus => true, class: 'form-control' %>
+      </div>
       <%= f.submit "Post Proposal", :class => 'button right' %>
   <% end %>
 </div>

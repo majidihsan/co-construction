@@ -1,13 +1,13 @@
 <% if @no_results %>
   <h5>No Results Found</h5>
 <% else %>
+<div>
   <div>
+    <h3>Companies</h3>
     <div>
-      <h3>Companies</h3>
-      <div>
-        <table class="responive">
-          <thead>
-            <tr>
+      <table class="responive">
+        <thead>
+          <tr>
             <th>Name</th>
             <th>Category</th>
             <th>Address</th>
@@ -15,23 +15,23 @@
             <th>Phone</th>
             <th>working hours</th>
             <th>working Since</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @companies.each do |company| %>
-              <tr>
-                <td><%= company.name %></td>
-                <td><%= company.category %></td>
-                <td><%= company.address %></td>
-                <td><%=company.zipcode  %></td>
-                <td><%= company.phone %></td>
-                <td><%=company.working_hours  %></td>
-                <td><%= company.working_since %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
+          </tr>
+        </thead>
+        <tbody>
+          <% @companies.each do |company| %>
+          <tr>
+            <td><%= company.name %></td>
+            <td><%= company.category %></td>
+            <td><%= company.address %></td>
+            <td><%=company.zipcode  %></td>
+            <td><%= company.phone %></td>
+            <td><%=company.working_hours  %></td>
+            <td><%= company.working_since %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>
 <% end %>

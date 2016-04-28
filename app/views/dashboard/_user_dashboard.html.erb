@@ -1,38 +1,37 @@
 <div>
   <h3>Interested Contractors </h3>
     <div>
-      <% @user.projects.each do |project| %>
-        <% project.companies.each do |company| %>
-          <table class="responsive">
-            <thead>
+    <% @user.projects.each do |project| %>
+      <% project.companies.each do |company| %>
+        <table class="responsive">
+          <thead>
+            <tr>
+              <td>Project</td>
+              <td>Company</td>
+              <td>Category</td>
+              <td>Address</td>
+              <td>Zipcode</td>
+              <td>Contact</td>
+              <td>Hours</td>
+              <td>Since</td>
+            </tr>
+          </thead>
+            <tbody>
               <tr>
-                <td>Project</td>
-                <td>Company</td>
-                <td>Category</td>
-                <td>Address</td>
-                <td>Zipcode</td>
-                <td>Contact</td>
-                <td>Hours</td>
-                <td>Since</td>
+                <td><%=project.title %></td>
+                <td><%=company.name %></td>
+                <td><%=company.category %></td>
+                <td><%=company.address %></td>
+                <td><%=company.zipcode %></td>
+                <td><%=company.phone %></td>
+                <td><%=company.working_hours %></td>
+                <td><%=company.working_since %></td>
+                <td><%= link_to 'Write A Review', company_path(company), :class => 'button-xs' %></td>
               </tr>
-            </thead>
-              <tbody>
-                <tr>
-                  <td><%=project.title %></td>
-                  <td><%=company.name %></td>
-                  <td><%=company.category %></td>
-                  <td><%=company.address %></td>
-                  <td><%=company.zipcode %></td>
-                  <td><%=company.phone %></td>
-                  <td><%=company.working_hours %></td>
-                  <td><%=company.working_since %></td>
-                  <td><%= link_to 'Write A Review', company_path(company), :class => 'button-xs' %></td>
-                </tr>
-              <% end %>
             <% end %>
-        </tbody>
-      </table>
-    </div>
+          <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 
@@ -46,21 +45,21 @@
         <% @user.projects.each do |project| %>
           <% project.companies.each do |company| %>
             <% project.proposals.each do |proposal| %>
-               <div class="large-11 small-centered columns">
-                 <div class="box">
-                   <div class="box-icon">
-                       <span class="fi-mail"></span>
-                   </div>
-                   <div class="info">
-                     <h4 class="text-center"><%= link_to(proposal.company.name, company_path(company)) %></h4>
-                     <p class="text-center"><%=proposal.body %></p>
-                     <p class="text-center"><%=proposal.project.title %></p>
-                   </div>
-                 </div>
-               </div>
-             </div>
-             <% end %>
+            <div class="large-11 small-centered columns">
+              <div class="box">
+                <div class="box-icon">
+                    <span class="fi-mail"></span>
+                </div>
+                  <div class="info">
+                    <h4 class="text-center"><%= link_to(proposal.company.name, company_path(company)) %></h4>
+                    <p class="text-center"><%=proposal.body %></p>
+                    <p class="text-center"><%=proposal.project.title %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
           <% end %>
         <% end %>
-    </tr>
+      <% end %>
+  </tr>
 </div>

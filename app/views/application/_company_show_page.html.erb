@@ -3,33 +3,32 @@
 
 <div class="row">
   <div class="small-6 small-centered columns">
-
     <div class="service">
       <div class="service-icon-box">
         <img src="/assets/hammer.png" alt="" class="service-icon">
-      </div>
-      <h4 class="service-heading"> <%= @company.name %> </h4>
-      <p class="service-description"> <%= @company.category %> </p>
-      <p class="service-description"> <%= @company.address %> </p>
-      <p class="service-description"> <%= @company.zipcode %> </p>
-      <p class="service-description"> <%= @company.phone %> </p>
-      <p class="service-description"> <%= @company.working_hours %> </p>
-      <p class="service-description"> <%= @company.working_since %> </p>
-    </div>
-    <div class="row">
-        <div class="panel">
-          <h4 style=" text-align: center;">REVIEWS</h4>
         </div>
-        <div class="panel">
+        <h4 class="service-heading"> <%= @company.name %> </h4>
+        <p class="service-description"> <%= @company.category %> </p>
+        <p class="service-description"> <%= @company.address %> </p>
+        <p class="service-description"> <%= @company.zipcode %> </p>
+        <p class="service-description"> <%= @company.phone %> </p>
+        <p class="service-description"> <%= @company.working_hours %> </p>
+        <p class="service-description"> <%= @company.working_since %> </p>
+      </div>
+        <div class="row">
+          <div class="panel">
+            <h4 style=" text-align: center;">REVIEWS</h4>
+        </div>
+          <div class="panel">
             <% @company.reviews.each do |review| %>
               <p><em>Posted by</em>: <strong><%= review.user.name %></5></strong>
-                <div class="panel">
-              <p><%= review.body %></p>
-                  <p>Rating: <%= review.rating %></p>
-                    </div>
-              <% end %>
-            </div>
-          </div>
+              <div class="panel">
+                <p><%= review.body %></p>
+                <p>Rating: <%= review.rating %></p>
+              </div>
+          <% end %>
         </div>
       </div>
     </div>
+  </div>
+</div>
