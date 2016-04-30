@@ -1,7 +1,7 @@
 #Co-Construction
 ===============
 
-Link to website : https://co-construction.herokuapp.com/
+Link to website : http://co-construction.herokuapp.com/
 --------------------------------------------------------
 
 it is platform which will provide a collaborative environment for both clients and
